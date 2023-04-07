@@ -14,6 +14,20 @@ body{
     margin: 45px auto 45px auto;
     height: 63px;
 }
+.titulo_mobile{
+    width: 312px;
+    height: 63px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+    letter-spacing: -0.004em;
+    color: #75B79E;
+    display: none;
+    margin: 40px auto 40px auto;
+}
 .table{
     margin-left: 122px;
     margin-right: 112px;    
@@ -32,7 +46,30 @@ body{
 .card img {
     width: 100px;
     height: 100px;
-    background: url(Arquivos/back.png);
     background-size: 100px;
     margin: 24px 10px 22px 7px;
+}
+.back{}
+.front{}
+.flip{
+    display: none;
+}
+.selecionado{}
+.certo{}
+
+@media( max-width: 614px){
+    .titulo_mobile{
+        display: flex;
+    }
+    .titulo{
+        display: none;
+    }
+    .table{
+        justify-content: center;
+        margin-left: 115px;
+        display: flex;
+        flex-direction: column;
+
+
+    }
 }
