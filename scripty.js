@@ -1,4 +1,4 @@
-const card_number = prompt("quantas cartas pode ser de 2 a 14 cartas e somente par")
+let card_number = prompt("quantas cartas pode ser de 2 a 14 cartas e somente par")
 const imagens = [
     'Arquivos/bobrossparrot.gif',
     'Arquivos/explodyparrot.gif',
@@ -11,12 +11,11 @@ const imagens = [
 var lista_aleatoria = []
 var finalizados = 0;
 var tentativas = 0;
-while(card_number > 14 || card_number%2 !=0 || card_number <= 3 ){
-    card_number = prompt("quantas cartas pode ser de 2 a 14 cartas e somente par")
-}
-
 
 let temp = imagens
+while(card_number <= 14 || card_number%2 !=0 || card_number <= 4 ){
+    card_number = prompt("quantas cartas pode ser de 2 a 14 cartas e somente par")
+}
 for(let j = ((Number(card_number)/2)-1);j > -1;j--){
     const aleatorio = Math.floor(Math.random()*(j+1));
     lista_aleatoria.push(temp[aleatorio]);
