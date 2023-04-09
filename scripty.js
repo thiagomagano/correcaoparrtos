@@ -8,7 +8,7 @@ const imagens = [
     'Arquivos/tripletsparrot.gif',
     'Arquivos/unicornparrot.gif',
 ]
-while(card_number > 14 || card_number%2 !=0 || card_number <= 0 ){
+while(card_number > 14 || card_number%2 !=0 || card_number <= 3 ){
     card_number = prompt("quantas cartas pode ser de 2 a 14 cartas e somente par")
 }
 lista_aleatoria = []
@@ -28,9 +28,9 @@ function adicinorcartas(card_number){
     let cartas_conteudo = []
     for(let i = 0;i < card_number ; i++){
         mesa.innerHTML +=
-        `<div id="c${i}" class="card" onclick="virarcarta(this)">
-        <img  class="front flip" src="${lista_aleatoria[i]}" alt="">
-        <img  class="back"src="Arquivos/back.png" alt="">
+        `<div id="c${i}" class="card" data-test="card"  onclick="virarcarta(this)">
+        <img  class="front flip" data-test="face-up-image" src="${lista_aleatoria[i]}" alt="">
+        <img data-test="face-down-image" class="back"src="Arquivos/back.png" alt="">
         </div>`
     }
 }
