@@ -8,10 +8,14 @@ const imagens = [
     'Arquivos/tripletsparrot.gif',
     'Arquivos/unicornparrot.gif',
 ]
+var lista_aleatoria = []
+var finalizados = 0;
+var tentativas = 0;
 while(card_number > 14 || card_number%2 !=0 || card_number <= 3 ){
     card_number = prompt("quantas cartas pode ser de 2 a 14 cartas e somente par")
 }
-var lista_aleatoria = []
+
+
 let temp = imagens
 for(let j = ((Number(card_number)/2)-1);j > -1;j--){
     const aleatorio = Math.floor(Math.random()*(j+1));
@@ -57,6 +61,8 @@ function virarcarta(carta){
             b.removeAttribute('onclick')
             b.classList.remove('selecionado')
             var Lista_selecionadas = []
+            tentativas = tentativas + 1;
+            finalizados = finalizados + 2;
         }else if(a.innerHTML != b.innerHTML){
             a.classList.remove('selecionado')
             b.classList.remove('selecionado')
@@ -65,17 +71,13 @@ function virarcarta(carta){
             backa.classList.remove('flip')
             backb.classList.remove('flip')
             var Lista_selecionadas = []
+            tentativas += 1;
         }
     }else{
         Lista_selecionadas = []
     }
+    if(finalizados >=card_number){
+        alert('VOCÊ GANHOU')}
 }
-adicinorcartas(card_number)
 
-//comparador[0].classList.add('certo')
-        //comparador[1].classList.add('certo')
-        //comparador[0].classList.remove('selecionado')
-        //comparador[0].classList.remove('selecionado')
-        //trocar1.classList.toggle('flip')
-        //trocar2.classList.toggle('flip')
-        //carta.classList.remove('selecionado')
+adicinorcartas(card_number)
