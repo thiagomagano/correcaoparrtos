@@ -43,6 +43,9 @@ body{
     margin-right: 34px;
     margin-bottom: 34px;
 }
+.card::after{
+    transition: rotatey(-180deg);
+}
 .card img {
     width: 100px;
     height: 100px;
@@ -54,7 +57,9 @@ body{
 .flip{
     display: none;
 }
-.selecionado{}
+.selecionado{
+    transition: rotatey(-180deg);
+}
 .certo{}
 
 @media( max-width: 614px){

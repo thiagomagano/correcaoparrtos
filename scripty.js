@@ -1,32 +1,35 @@
-const card_number = prompt("quantas cartaspode ser de 2 a 14 cartas e somente par")
-let comparador = mesa.querySelectorAll(".selecionado")
+const card_number = prompt("quantas cartas pode ser de 2 a 14 cartas e somente par")
 const imagens = [
     'Arquivos/bobrossparrot.gif',
-    'Arquivos/bobrossparrot.gif',
-    'Arquivos/explodyparrot.gif',
     'Arquivos/explodyparrot.gif',
     'Arquivos/fiestaparrot.gif',
-    'Arquivos/fiestaparrot.gif',
-    'Arquivos/metalparrot.gif',
     'Arquivos/metalparrot.gif',
     'Arquivos/revertitparrot.gif',
-    'Arquivos/revertitparrot.gif',
-    'Arquivos/tripletsparrot.gif',
     'Arquivos/tripletsparrot.gif',
     'Arquivos/unicornparrot.gif',
-    'Arquivos/unicornparrot.gif'
 ]
 while(card_number > 14 || card_number%2 !=0 || card_number <= 0 ){
-    card_number = prompt("quantas cartaspode ser de 2 a 14 cartas e somente par")
+    card_number = prompt("quantas cartas pode ser de 2 a 14 cartas e somente par")
+}
+lista_aleatoria = []
+let temp = imagens
+for(let j = ((Number(card_number)/2)-1);j > -1;j--){
+    const aleatorio = Math.floor(Math.random()*(j+1));
+    lista_aleatoria.push(temp[aleatorio]);
+    lista_aleatoria.push(temp[aleatorio]);
+    temp.splice(aleatorio,1)
+}
+lista_aleatoria.sort(comparador)
+function comparador() { 
+	return Math.random() - 0.5;
 }
 function adicinorcartas(card_number){
     let mesa = document.getElementById('mesa');
     let cartas_conteudo = []
-
-    for(let i = 1;i <= card_number ; i++){
+    for(let i = 0;i < card_number ; i++){
         mesa.innerHTML +=
         `<div id="c${i}" class="card" onclick="virarcarta(this)">
-        <img  class="front flip" src="${imagens[i-1]}" alt="">
+        <img  class="front flip" src="${lista_aleatoria[i]}" alt="">
         <img  class="back"src="Arquivos/back.png" alt="">
         </div>`
     }
@@ -37,16 +40,30 @@ function virarcarta(carta){
     trocar1.classList.toggle('flip')
     trocar2.classList.toggle('flip')
     carta.classList.add('selecionado')
-    const comparador = Array.from(document.querySelectorAll(".Selecionados"))
-    //if(comparador.length >=2 && comparador[0] === comparador[1]){
-    //    comparador[0].classList.add('certo')
-    //    comparador[1].classList.add('certo')
-    //    comparador[0].classList.remove('selecionado')
-    //    comparador[0].classList.remove('selecionado')
-    //}else{
-    //    trocar1.classList.toggle('flip')
-    //    trocar2.classList.toggle('flip')
-    //    carta.classList.remove('selecionado')
-    //}
+    let selecionados = []
+    const comparador = document.querySelector(".Selecionado")
+    while(comparador != null){
+        selecionados.push(comparador)
+        comparador.classList.remove('Selecionado')
+        if(selecionados.length == 2){
+            if(comparador[0] !== comparador[1]){
+                alert(`diferentes`)
+            }
+            else{
+                
+            }
+        }
+        const comparador = document.querySelector(".Selecionados")
+        selecionados.push(comparador)
+    }
+
 }
 adicinorcartas(card_number)
+
+//comparador[0].classList.add('certo')
+        //comparador[1].classList.add('certo')
+        //comparador[0].classList.remove('selecionado')
+        //comparador[0].classList.remove('selecionado')
+        //trocar1.classList.toggle('flip')
+        //trocar2.classList.toggle('flip')
+        //carta.classList.remove('selecionado')
