@@ -1,4 +1,4 @@
-const card_number = prompt("quantas cartas pode ser de 2 a 14 cartas e somente par")
+let card_number = prompt("quantas cartas pode ser de 2 a 14 cartas e somente par")
 const imagens = [
     'Arquivos/bobrossparrot.gif',
     'Arquivos/explodyparrot.gif',
@@ -34,8 +34,8 @@ function adicinorcartas(card_number){
     for(let i = 0;i < card_number ; i++){
         mesa.innerHTML +=
         `<div id="C${i}" class="card ${lista_aleatoria[i]}" data-test = 'card'  onclick="virarcarta(this)">
-        <img  class="front flip face" data-test = 'face-up-image' src="${lista_aleatoria[i]}" alt="">
-        <img data-test= 'face-down-image' class="back face"src="Arquivos/back.png" alt="">
+        <div class="front face" data-test = 'face-up-image'> <img   src="${lista_aleatoria[i]}" alt=""></div>
+        <div data-test= 'face-down-image' class="back face"><img src="Arquivos/back.png" alt=""></div>
         </div>`
     }
 }
@@ -44,7 +44,7 @@ function virarcarta(carta){
     const front = carta.querySelector('.front')
     const back = carta.querySelector('.back')
     front.classList.remove('flip')
-    back.classList.toggle('flip')
+    back.classList.add('flip')
     carta.classList.add('selecionado')
     var Lista_selecionadas = document.querySelectorAll(".selecionado")
     const a = Lista_selecionadas[Lista_selecionadas.length-2]

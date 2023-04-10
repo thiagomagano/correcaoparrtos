@@ -39,9 +39,8 @@ body{
     width: 117px;
     height: 146px;
     position: relative;
-    background-color: #A7E9AF;
-    border: 1px solid #99CEA8;
     border-radius: 5px;
+    position: relative;
 }
 .face{
     width: 100%;
@@ -53,7 +52,6 @@ body{
     align-items: center;
     justify-content: center;
     position: absolute;
-    backface-visibility: hidde
     transition: all .5s;
     transform-style: preserve-3d;
 }
@@ -81,6 +79,7 @@ body{
 .flip{
     display: none;
 }
+
 .selecionado{}
 .certo{}
 
