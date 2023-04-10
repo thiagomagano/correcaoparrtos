@@ -34,8 +34,8 @@ function adicinorcartas(card_number){
     for(let i = 0;i < card_number ; i++){
         mesa.innerHTML +=
         `<div id="C${i}" class="card ${lista_aleatoria[i]}" data-test = 'card'  onclick="virarcarta(this)">
-        <div class="front face" > <img  data-test = 'face-up-image' src="${lista_aleatoria[i]}" alt=""></div>
-        <div  class="back face"><img data-test = 'face-down-image' src="Arquivos/back.png" alt=""></div>
+        <div class="front face" data-test = 'face-up-image' > <img  data-test = 'face-up-image' src="${lista_aleatoria[i]}" alt=""></div>
+        <div  class="back face" data-test = 'face-down-image'><img data-test = 'face-down-image' src="Arquivos/back.png" alt=""></div>
         </div>`
     }
 }
