@@ -35,10 +35,18 @@ function adicinorcartas(card_number){
         mesa.innerHTML +=
         `<div id="C${i}" class="card ${lista_aleatoria[i]}" data-test = 'card'  onclick="virarcarta(this)">
         <div class="front face" > <img  data-test = 'face-up-image' src="${lista_aleatoria[i]}" alt=""></div>
-        <div  class="back face"><img data-test= 'face-down-image' src="Arquivos/back.png" alt=""></div>
+        <div  class="back face"><img data-test = 'face-down-image' src="Arquivos/back.png" alt=""></div>
         </div>`
     }
 }
+function reset(a,b,fronta,frontb,backa,backb){
+    a.classList.remove('selecionado');
+    b.classList.remove('selecionado');
+    fronta.classList.add('flip');
+    frontb.classList.add('flip');
+    backa.classList.remove('flip');
+    backb.classList.remove('flip');
+    alert('porque n funciona')}
 function virarcarta(carta){
     const anterior = document.querySelector('.selecionado')
     const front = carta.querySelector('.front')
@@ -53,6 +61,13 @@ function virarcarta(carta){
     const b = Lista_selecionadas[Lista_selecionadas.length-1]
     const frontb = b.querySelector('.front')
     const backb = b.querySelector('.back')
+    function reset(){
+        a.classList.remove('selecionado');
+        b.classList.remove('selecionado');
+        fronta.classList.add('flip');
+        frontb.classList.add('flip');
+        backa.classList.remove('flip');
+        backb.classList.remove('flip');}
     if(Lista_selecionadas.length >= 2){
         if(a.innerHTML==b.innerHTML){
             a.classList.add('certo')
@@ -65,12 +80,7 @@ function virarcarta(carta){
             tentativas = tentativas + 1;
             finalizados = finalizados + 2;
         }else if(a.innerHTML != b.innerHTML){
-            a.classList.remove('selecionado')
-            b.classList.remove('selecionado')
-            fronta.classList.add('flip')
-            frontb.classList.add('flip')
-            backa.classList.remove('flip')
-            backb.classList.remove('flip')
+            window.setTimeout(reset,1000)
             var Lista_selecionadas = []
             tentativas += 1;
         }
